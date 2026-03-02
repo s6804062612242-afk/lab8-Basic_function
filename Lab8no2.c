@@ -1,7 +1,8 @@
 #include <stdio.h>
-//เอาออกมาข้างนอกให้พวกฟังชั่นเห็นตัวdata
-int std[8] ;
-int checkscore(index);
+
+int std[8],i,j,oneans ;
+int checkscore(int index);
+int chceck1(int index);
 char charkeys[10] = {'D','B','D','C','C','D','A','E','A','D'};
 char ans[8][10] = {
     {'A','B','A','C','C','D','E','E','A','D'}, // Score: 7
@@ -17,8 +18,12 @@ char ans[8][10] = {
 int main() {
     
     
-    for(int i = 0 ;i<8;i++){
+    for( i = 0 ;i<8;i++){
         printf("std %d => Score: %d\n", i+1, checkscore(i));
+        if(oneans==1){
+        	printf("show number of no.1 stat :  %d\n",i);
+		}
+		oneans = 0;
     }
         return 0;
     }
@@ -28,13 +33,20 @@ int main() {
 
 int checkscore(int index){
     int currentScore = 0;
-        for (int j = 0; j < 10; j++) {
+        for ( j = 0; j < 10; j++) {
+        
             if (ans[index][j] == charkeys[j]) {
                 currentScore++;
                 std[index] = currentScore;
             }
             
-        }
+            
+        }chceck1(index);
         return currentScore;
         
+}
+int chceck1(int index){
+		if(ans[index][0]==charkeys[0]){
+        		oneans = 1;
+			}
 }
