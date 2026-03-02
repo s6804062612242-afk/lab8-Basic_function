@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int std[8],i,j,oneans ;
+int std[8],i,j,oneans,stat ;
 int checkscore(int index);
 int chceck1(int index);
 char charkeys[10] = {'D','B','D','C','C','D','A','E','A','D'};
@@ -21,7 +21,7 @@ int main() {
     for( i = 0 ;i<8;i++){
         printf("std %d => Score: %d\n", i+1, checkscore(i));
         if(oneans==1){
-        	printf("show number of no.1 stat :  %d\n",i);
+        	printf("show number of no.1 stat :  %d\n",++stat);//check
 		}
 		oneans = 0;
     }
